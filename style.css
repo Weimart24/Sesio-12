@@ -19,6 +19,8 @@ body{
 .nav{
     display: flex;
     justify-content: space-between;
+    max-width: 992px; /*Esto sirve para que el contenido no se desplaye en las esquinas y quede centrado cuando supere el ancho que uno especifique*/
+    margin: 0 auto;
 }
 .nav-link{
     color: white;
@@ -31,14 +33,76 @@ body{
     line-height: 80px;
 }
 .nav-menu{
-    display: flex;
+    display: flex; /*Elementos en horizontal*/
     margin-right: 40px;
     list-style: none;
 }
 .nav-menu-item{
-    font-size: 20px;
+    font-size: 20px; 
     margin: 0 10px;
     line-height: 80px;
     text-transform: uppercase;
     width: max-content;
+}
+.nav-menu-link:hover{ /*:hover Esto es para poner sombreado cuando pasemos el puntero por encima*/ 
+    background-color: rgb(167, 197, 245);
+    transition: 0.5s; 
+}
+.nav-menu-link{
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+.nav-toggle{
+    color: white;
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding: 0 20px;
+    line-height: 60px;
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px){
+    body{
+        padding-top: 70px;
+    }
+    .header{
+        height: 60px;
+    }
+    .logo{
+        font-size: 25px;
+        padding: 0px 20px;
+        line-height: 60px;
+    }
+    .nav-menu{
+        flex-direction: column; /*Elementos uno encima del otro*/
+        margin-right: 20px;
+        list-style: none;
+        background-color: #2c3e50;
+        position: fixed;
+        left: 0;
+        top: 60px;
+        width: 100%;
+        padding: 20px 0;
+        height: calc(100% - 60px);
+        overflow: -y: auto;
+        left: 100%;
+        transition: 0.3s;
+    }
+    .nav-menu-item{
+        line-height: 70px;
+    }
+    .nav-menu-link:hover,
+    .nav-menu-link_active{
+        background: none;
+        color: #83c5f7;
+    }
+    
+    .nav-toggle{
+        display: block;
+    }
+    .nav-menu_visible{
+    
+    }
 }
